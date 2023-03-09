@@ -17,14 +17,15 @@ SDL_Texture* LoadTextureFromFile(string path);
 void FreeTexture();
 int main(int argc, char* args[])
 {
-	
+	g_renderer = SDL_CreateRenderer(g_window, -1, SDL_RENDERER_ACCELERATED);
+	g_texture = LoadTextureFromFile("Images/test.bmp");
 	bool quit = false;
 	while (!quit)
 	{
 		Render();
 		quit = Update();
 	}
-
+	
 	return 0;
 }
 
@@ -110,7 +111,6 @@ SDL_Texture* LoadTextureFromFile(string path)
 {
 	FreeTexture();
 	SDL_Texture* p_texture = nullptr;
-
 	SDL_Surface* p_surface = IMG_Load(path.c_str());
 	if (p_surface != nullptr)
 	{
