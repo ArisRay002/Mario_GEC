@@ -17,15 +17,14 @@ SDL_Texture* LoadTextureFromFile(string path);
 void FreeTexture();
 int main(int argc, char* args[])
 {
-	g_renderer = SDL_CreateRenderer(g_window, -1, SDL_RENDERER_ACCELERATED);
-	g_texture = LoadTextureFromFile("Images/test.bmp");
+
 	bool quit = false;
 	while (!quit)
 	{
 		Render();
 		quit = Update();
 	}
-	
+
 	return 0;
 }
 
@@ -33,22 +32,28 @@ bool InitSDL()
 {
 	if (SDL_Init(SDL_INIT_VIDEO) < 0)
 	{
-		cout << "SDL did not initialise. Error:" << SDL_GetError;
+		cout << "SDL did not initialise. Error: " << SDL_GetError();
 		return false;
 	}
-	else	
+	else
 	{
-		g_window = SDL_CreateWindow("Games Engine Creation", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_SHOWN);
-
+		//setup passed so create window
+		g_window = SDL_CreateWindow("Games Engine Creation",
+			SDL_WINDOWPOS_UNDEFINED,
+			SDL_WINDOWPOS_UNDEFINED,
+			SCREEN_WIDTH,
+			SCREEN_HEIGHT,
+			SDL_WINDOW_SHOWN);
+		//did the window get created?
 		if (g_window == nullptr)
 		{
+			//window failed
 			cout << "Window was not created. Error: " << SDL_GetError();
 			return false;
 		}
+		g_renderer = SDL_CreateRenderer(g_window, -1, SDL_RENDERER_ACCELERATED);
 	}
 	
-	g_renderer = SDL_CreateRenderer(g_window, -1, SDL_RENDERER_ACCELERATED);
-	g_texture = LoadTextureFromFile("Images/test.bmp");
 	if (g_texture == nullptr)
 	{
 		return false;
@@ -67,11 +72,19 @@ bool InitSDL()
 		cout << "Renderer could not initialise. Error: " << SDL_GetError();
 		return false;
 	}
-	
-}
+	g_texture = LoadTextureFromFile("Images/test.bmp");
+	if (g_texture == nullptr)
+	{
+		return false;
+	}
+
+	return false;
+};
+
 
 void CloseSDL()
 {
+	//release the window
 	SDL_DestroyWindow(g_window);
 	g_window = nullptr;
 
@@ -111,6 +124,7 @@ SDL_Texture* LoadTextureFromFile(string path)
 {
 	FreeTexture();
 	SDL_Texture* p_texture = nullptr;
+
 	SDL_Surface* p_surface = IMG_Load(path.c_str());
 	if (p_surface != nullptr)
 	{
@@ -121,12 +135,11 @@ SDL_Texture* LoadTextureFromFile(string path)
 		}
 		SDL_FreeSurface(p_surface);
 	}
-	else 
+	else
 	{
 		cout << "Unable to create texture from surface. Error: " << SDL_GetError();
 	}
 	return p_texture;
-	return nullptr;
 }
 
 void FreeTexture()
