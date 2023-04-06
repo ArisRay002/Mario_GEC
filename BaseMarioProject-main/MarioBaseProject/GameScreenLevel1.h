@@ -3,6 +3,8 @@
 #define _GAMESCREENLEVEL1_H
 #include "GameScreen.h"
 #include "Commons.h"
+#include <iostream>
+class Texture2D;
 class GameScreenLevel1 : GameScreen
 {
 	public:
