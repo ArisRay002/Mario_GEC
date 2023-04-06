@@ -1,6 +1,7 @@
 #include "GameScreenManager.h"
 #include"GameScreen.h"
 #include "GameScreenLevel1.h"
+using namespace std;
 GameScreenManager::GameScreenManager(SDL_Renderer* renderer, SCREENS startScreen)
 {
 	m_renderer = renderer;
@@ -11,8 +12,8 @@ GameScreenManager::GameScreenManager(SDL_Renderer* renderer, SCREENS startScreen
 GameScreenManager::~GameScreenManager()
 {
 	m_renderer = nullptr;
-	m_current_screen = nullptr;
 	delete m_current_screen;
+	m_current_screen = nullptr;
 }
 
 void GameScreenManager::Render()

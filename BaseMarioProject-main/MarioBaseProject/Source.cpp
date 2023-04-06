@@ -19,6 +19,26 @@ bool InitSDL();
 void CloseSDL();
 bool Update();
 void Render();
+
+int main(int argc, char* args[])
+{
+    if (InitSDL())
+    {
+        bool quit = false;
+        while (!quit)
+        {
+            Render();
+            quit = Update();
+        }
+    }
+
+    game_screen_manager = new GameScreenManager(g_renderer, SCREEN_LEVEL1);
+
+    g_old_time = SDL_GetTicks();
+
+    CloseSDL();
+    return 0;
+};
 bool InitSDL()
 {
     if (SDL_Init(SDL_INIT_VIDEO) < 0)
@@ -108,24 +128,4 @@ void Render()
     //g_texture->Render(Vector2D(), SDL_FLIP_NONE);
     SDL_RenderPresent(g_renderer);
     game_screen_manager->Render();
-}
-
-int main(int argc, char* args[])
-{   
-    if (InitSDL())
-    {
-        bool quit = false;
-        while (!quit)
-        {
-            Render();
-            quit = Update();
-        }
-    }
-
-    game_screen_manager = new GameScreenManager(g_renderer, SCREEN_LEVEL1);
-  
-    g_old_time = SDL_GetTicks();
-
-    CloseSDL();
-    return 0;
 }

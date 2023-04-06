@@ -1,10 +1,7 @@
 #pragma once
-#ifndef _GAMESCREENMANAGER_H
-#define _GAMESCREENMANAGER_H
 #include "SDL.h"
 #include "Commons.h"
-#include "GameScreen.h"
-#include "GameScreenLevel1.h"
+class GameScreen;
 class GameScreenManager
 {
 	public:
@@ -17,7 +14,8 @@ class GameScreenManager
 		void ChangeScreen(SCREENS new_screen);
 
 	private:
-		SDL_Renderer* m_renderer;
 		GameScreen* m_current_screen;
+	protected:
+		SDL_Renderer* m_renderer;
 };
-#endif
+
