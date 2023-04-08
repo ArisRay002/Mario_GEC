@@ -1,4 +1,6 @@
 #pragma once
+#ifndef _GAMESCREENMANAGER_H
+#define _GAMESCREENMANAGER_H
 #include "SDL.h"
 #include "Commons.h"
 class GameScreen;
@@ -18,4 +20,4 @@ class GameScreenManager
 	protected:
 		SDL_Renderer* m_renderer;
 };
-
+#endif

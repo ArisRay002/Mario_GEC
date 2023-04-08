@@ -32,5 +32,5 @@ bool GameScreenLevel1::SetUpLevel()
 		std::cout << "Failed to load background texture!" << std::endl;
 		return false;
 	}
-	return false;
+	return true;
 }

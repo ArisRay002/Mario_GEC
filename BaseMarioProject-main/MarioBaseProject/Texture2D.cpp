@@ -26,7 +26,7 @@ bool Texture2D::LoadFromFile(std::string path)
 	SDL_Surface* p_surface = IMG_Load(path.c_str());
 	if (p_surface != nullptr)
 	{
-		SDL_SetColorKey(p_surface, SDL_TRUE, SDL_MapRGB(p_surface->format, 0, 0XFF, 0XFF));
+		SDL_SetColorKey(p_surface, SDL_TRUE, SDL_MapRGB(p_surface->format, 0, 0XFF, 0XFF));					
 		m_texture = SDL_CreateTextureFromSurface(m_renderer, p_surface);
 		if (m_texture == nullptr)
 		{
@@ -37,7 +37,7 @@ bool Texture2D::LoadFromFile(std::string path)
 			m_width = p_surface->w;
 			m_height = p_surface->h;
 
-			cout << "Unable to create texture from surface. Error: " << IMG_GetError();
+			//cout << "Unable to create texture from surface. Error: " << IMG_GetError();
 		}
 		SDL_FreeSurface(p_surface);
 	}

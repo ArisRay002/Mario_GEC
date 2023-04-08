@@ -22,8 +22,12 @@ void Render();
 
 int main(int argc, char* args[])
 {
+
     if (InitSDL())
     {
+        game_screen_manager = new GameScreenManager(g_renderer, SCREEN_LEVEL1);
+
+        g_old_time = SDL_GetTicks();
         bool quit = false;
         while (!quit)
         {
@@ -31,10 +35,6 @@ int main(int argc, char* args[])
             quit = Update();
         }
     }
-
-    game_screen_manager = new GameScreenManager(g_renderer, SCREEN_LEVEL1);
-
-    g_old_time = SDL_GetTicks();
 
     CloseSDL();
     return 0;
@@ -74,7 +74,6 @@ bool InitSDL()
                 return false;
             }
         }
-
         else
         {
             cout << "Renderer could not initialise. Error: " << SDL_GetError();
@@ -84,9 +83,9 @@ bool InitSDL()
        // g_texture = new Texture2D(g_renderer);
 
         //if (!g_texture->LoadFromFile("Images/test.bmp"))
-       // {
-            //return false;
-        //}
+       //{
+           // return false;
+       //}
 
     }
 
