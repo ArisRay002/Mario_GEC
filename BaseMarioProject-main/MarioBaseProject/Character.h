@@ -2,6 +2,7 @@
 #include "SDL.h"
 #include <iostream>
 #include "Commons.h"
+
 class Texture2D;
 class Character
 {
