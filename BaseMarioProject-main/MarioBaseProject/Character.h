@@ -2,7 +2,7 @@
 #include "SDL.h"
 #include <iostream>
 #include "Commons.h"
-
+using namespace std;
 class Texture2D;
 class Character
 {
@@ -19,5 +19,9 @@ class Character
 		SDL_Renderer* m_renderer;
 		Vector2D m_position;
 		Texture2D* m_texture;
+	private:
+		FACING m_facing_direction;
+		
+
 };
 

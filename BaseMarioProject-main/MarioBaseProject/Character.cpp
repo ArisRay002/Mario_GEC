@@ -6,6 +6,7 @@ Character::Character(SDL_Renderer* renderer, string imagePath, Vector2D start_po
 {
 	SDL_Renderer* m_renderer = renderer;
 	Vector2D m_position = start_position;
+	FACING m_facing_direction = FACING_RIGHT;
 	Texture2D* m_texture = new Texture2D(m_renderer);
 	if (!m_texture->LoadFromFile(imagePath))
 	{
@@ -32,9 +33,11 @@ void Character::Update(float deltaTime, SDL_Event e)
 			{
 				case SDLK_LEFT:
 					m_position.x -= 1;
+					m_facing_direction = FACING_LEFT;
 				break;
 				case SDLK_RIGHT:
 					m_position.x += 1;
+					m_facing_direction = FACING_RIGHT;
 				break;
 			}
 			

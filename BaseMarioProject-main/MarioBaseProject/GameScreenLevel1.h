@@ -12,7 +12,7 @@ class GameScreenLevel1 : GameScreen
 		GameScreenLevel1(SDL_Renderer* renderer);
 		~GameScreenLevel1();
 
-		void Render() override;
+		void Render();
 		void Update(float deltaTime, SDL_Event e) override;
 
 	private:
