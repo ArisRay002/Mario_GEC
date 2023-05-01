@@ -4,6 +4,7 @@
 #include <SDL.h>
 #include <string>
 #include "Commons.h"
+#include "constants.h"
 class Texture2D
 {
 	public:
