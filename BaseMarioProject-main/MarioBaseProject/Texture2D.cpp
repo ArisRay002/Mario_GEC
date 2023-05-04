@@ -1,6 +1,7 @@
 #include "Texture2D.h"
 #include <SDL_image.h>
 #include <iostream>
+#include "Character.h"
 using namespace std;
 Texture2D::Texture2D(SDL_Renderer* renderer)
 {
@@ -56,7 +57,7 @@ void Texture2D::Free()
 }
 void Texture2D::Render(Vector2D new_postition, SDL_RendererFlip flip, double angle)
 {
-	SDL_Rect renderLocation = { new_position.x, new_position.y, m_width, m_height };
+	SDL_Rect renderLocation = {0,0, m_width, m_height };
 
 	SDL_RenderCopyEx(m_renderer, m_texture, nullptr, &renderLocation, 0, nullptr, SDL_FLIP_NONE);
 }
