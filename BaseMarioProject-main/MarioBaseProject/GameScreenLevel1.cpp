@@ -39,6 +39,6 @@ bool GameScreenLevel1::SetUpLevel()
 	}
 	return true;
 	//set up player character
-	my_character = new Character(m_renderer, "Images/Mario.png", Vector2D(64, 330));
+	my_character = new CharacterMario(m_renderer, "Images/Mario.png", Vector2D(64, 330));
 
 }
