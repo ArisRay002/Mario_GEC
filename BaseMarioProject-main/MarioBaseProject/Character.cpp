@@ -4,17 +4,18 @@ using namespace std;
 
 Character::Character(SDL_Renderer* renderer, string imagePath, Vector2D start_position)
 {
-	SDL_Renderer* m_renderer = renderer;
-	Vector2D m_position = start_position;
-	FACING m_facing_direction = FACING_RIGHT;
-	Texture2D* m_texture = new Texture2D(m_renderer);
+	m_renderer = renderer;
+	m_position = start_position;
+	m_texture = new Texture2D(renderer);
+	m_facing_direction = FACING_RIGHT;
+	m_texture->LoadFromFile(imagePath);
+
 	m_moving_left = false;
 	m_moving_right = false;
 
-	if (!m_texture->LoadFromFile(imagePath))
-	{
-		std::cout << "Failed to load background texture!" << std::endl;	
-	}
+	m_jumping = false;
+	m_can_jump = false;
+	m_jump_force = INITIAL_JUMP_FORCE;
 }
 
 Character::~Character()

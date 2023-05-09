@@ -4,9 +4,14 @@
 #include "GameScreen.h"
 #include "Commons.h"
 #include "Character.h"
-#include <iostream>
 #include "CharacterMario.h"
+
+#include <iostream>
+
+class Character;
+class CharacterMario;
 class Texture2D;
+
 class GameScreenLevel1 : GameScreen
 {
 	public:

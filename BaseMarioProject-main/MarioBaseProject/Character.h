@@ -1,9 +1,13 @@
 #pragma once
 #include "SDL.h"
-#include <iostream>
 #include "Commons.h"
+
+#include <iostream>
+
 using namespace std;
+
 class Texture2D;
+
 class Character
 {
 	public:

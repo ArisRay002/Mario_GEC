@@ -2,6 +2,17 @@
 
 CharacterMario::CharacterMario(SDL_Renderer* renderer, string imagePath, Vector2D start_position) : Character(renderer, imagePath, start_position)
 {
+
+}
+
+CharacterMario::~CharacterMario()
+{
+
+}
+
+
+void CharacterMario::Update(float deltaTime, SDL_Event e)
+{
 	switch (e.type)
 	{
 	case SDL_KEYDOWN:
@@ -31,6 +42,7 @@ CharacterMario::CharacterMario(SDL_Renderer* renderer, string imagePath, Vector2
 			break;
 		}
 		break;
+	}
 }
-	Character::Update(deltaTime, e)
+
 
