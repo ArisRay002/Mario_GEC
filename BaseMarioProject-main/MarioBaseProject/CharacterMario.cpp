@@ -10,7 +10,6 @@ CharacterMario::~CharacterMario()
 
 }
 
-
 void CharacterMario::Update(float deltaTime, SDL_Event e)
 {
 	switch (e.type)
@@ -43,6 +42,8 @@ void CharacterMario::Update(float deltaTime, SDL_Event e)
 		}
 		break;
 	}
+
+	Character::Update(deltaTime, e);
 }
 
 

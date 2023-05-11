@@ -117,14 +117,17 @@ bool Update()
             break;
     }
     game_screen_manager->Update((float)(new_time - g_old_time) / 1000.0f, e);
+    
     g_old_time = new_time;
+
     return false;
 }
 void Render()
 {
     SDL_SetRenderDrawColor(g_renderer, 0xFF, 0xFF, 0xFF, 0xFF);
     SDL_RenderClear(g_renderer);
-    //g_texture->Render(Vector2D(), SDL_FLIP_NONE);
-    SDL_RenderPresent(g_renderer);
+
     game_screen_manager->Render();
+
+    SDL_RenderPresent(g_renderer);
 }

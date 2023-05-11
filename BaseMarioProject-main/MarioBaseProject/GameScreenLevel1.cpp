@@ -1,5 +1,6 @@
 #include "GameScreenLevel1.h"
 #include "Texture2D.h"
+#include "Collisions.h"
 #include <iostream>
 using namespace std;
 GameScreenLevel1::GameScreenLevel1(SDL_Renderer* renderer) : GameScreen(renderer)
@@ -26,6 +27,11 @@ void GameScreenLevel1::Update(float deltaTime, SDL_Event e)
 {
 	//update character
 	my_character->Update(deltaTime, e);
+	if (Collisions::Instance()->Circle(mario, luigi))
+	{
+		cout << "Circle hit!" << endl;
+	}
+
 
 }
 
@@ -37,8 +43,8 @@ bool GameScreenLevel1::SetUpLevel()
 		std::cout << "Failed to load background texture!" << std::endl;
 		return false;
 	}
-	return true;
 	//set up player character
 	my_character = new CharacterMario(m_renderer, "Images/Mario.png", Vector2D(64, 330));
 
+	return true;
 }

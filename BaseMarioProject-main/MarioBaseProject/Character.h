@@ -14,12 +14,20 @@ class Character
 		Character(SDL_Renderer* renderer, string imagePath, Vector2D start_position);
 		~Character();
 
+		//polymorphism 
 		virtual void Render();
 		virtual void Update(float deltaTime, SDL_Event e);
 		void SetPosition(Vector2D new_position);
 		Vector2D GetPosition();
 		void AddGravity(float deltaTime);
 		void Jump();
+		float GetCollisionRadius();
+		Rect2D GetCollisionBox() 
+		{
+			return Rect2D(m_position.x, m_position.y,
+				m_texture->GetWidth(), m_texture->GetHeight());
+		}
+
 		
 	protected:
 		SDL_Renderer* m_renderer;
@@ -32,8 +40,7 @@ class Character
 		bool m_jumping;
 		bool m_can_jump;
 		float m_jump_force;
-	private:
 		FACING m_facing_direction;
-
+		float m_collision_radius;
 };
 

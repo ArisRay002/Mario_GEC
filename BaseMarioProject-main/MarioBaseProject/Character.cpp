@@ -6,9 +6,14 @@ Character::Character(SDL_Renderer* renderer, string imagePath, Vector2D start_po
 {
 	m_renderer = renderer;
 	m_position = start_position;
-	m_texture = new Texture2D(renderer);
 	m_facing_direction = FACING_RIGHT;
-	m_texture->LoadFromFile(imagePath);
+
+	m_texture = new Texture2D(renderer);
+	if (!m_texture->LoadFromFile(imagePath))
+	{
+		std::cout << "Failed to load character texture!" << std::endl;
+
+	}
 
 	m_moving_left = false;
 	m_moving_right = false;
@@ -16,6 +21,8 @@ Character::Character(SDL_Renderer* renderer, string imagePath, Vector2D start_po
 	m_jumping = false;
 	m_can_jump = false;
 	m_jump_force = INITIAL_JUMP_FORCE;
+	m_collision_radius = 15.0f;
+	
 }
 
 Character::~Character()
@@ -51,6 +58,8 @@ void Character::Update(float deltaTime, SDL_Event e)
 			m_jumping = false;
 	}
 
+	AddGravity(deltaTime);
+
 	if (m_moving_left)
 	{
 		MoveLeft(deltaTime);
@@ -80,14 +89,21 @@ void Character::Jump()
 	m_can_jump = false;
 }
 
+float Character::GetCollisionRadius()
+{
+	return m_collision_radius;
+}
+
 void Character::MoveLeft(float deltaTime)
 {
 	m_facing_direction = FACING_LEFT;
+	m_position.x -= MOVEMENTSPEED * deltaTime;
 }
 
 void Character::MoveRight(float deltaTime)
 {
 	m_facing_direction = FACING_RIGHT;
+	m_position.x += MOVEMENTSPEED * deltaTime;
 }
 
 void Character::AddGravity(float deltaTime)
@@ -101,3 +117,4 @@ void Character::AddGravity(float deltaTime)
 		m_can_jump = true;
 	}
 }
+
