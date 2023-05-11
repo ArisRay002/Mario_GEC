@@ -23,7 +23,7 @@ void CharacterLuigi::Update(float deltaTime, SDL_Event e)
 		case SDLK_d:
 			m_moving_right = true;
 			break;
-		case SDLK_w:
+		case SDLK_SPACE:
 			if (m_can_jump)
 			{
 				Jump();
