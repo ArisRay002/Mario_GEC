@@ -1,6 +1,6 @@
 #include "CharacterLuigi.h"
 
-CharacterLuigi::CharacterLuigi(SDL_Renderer* renderer, string imagePath, Vector2D start_position) : Character(renderer, imagePath, start_position)
+CharacterLuigi::CharacterLuigi(SDL_Renderer* renderer, string imagePath, Vector2D start_position, LevelMap* map) : Character(renderer, imagePath, start_position, map)
 {
 
 }
@@ -41,6 +41,8 @@ void CharacterLuigi::Update(float deltaTime, SDL_Event e)
 			break;
 		}
 		break;
-		Character::Update(deltaTime, e);
+	}
+
+	Character::Update(deltaTime, e);
 }
 
