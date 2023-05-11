@@ -37,3 +37,8 @@ LevelMap::~LevelMap()
 	delete[]m_map;
 
 }
+
+int LevelMap::GetTileAt(unsigned int h, unsigned int w)
+{
+	return 0;
+}
