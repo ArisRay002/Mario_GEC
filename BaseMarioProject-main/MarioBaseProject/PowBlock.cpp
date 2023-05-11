@@ -1,7 +1,7 @@
 #include "PowBlock.h"
 
 using namespace std;
-PowBlock::PowBlock(SDL_Renderer* LevelMap, SDL_Renderer*renderer, SDL_Renderer*map)
+PowBlock::PowBlock(SDL_Renderer* renderer, LevelMap*map)
 {
 	std::string imagePath = "Images/PowBlock.png";
 	m_texture = new Texture2D(renderer);
@@ -31,23 +31,33 @@ void PowBlock::Render()
 
 }
 
-Rect2D PowBlock::GetCollisionBox()
+inline Rect2D PowBlock::GetCollisionBox()
 {
-	
+	return Rect2D(x, y, m_single_sprite_w, m_single_sprite_h);
 }
 
 void PowBlock::TakeHit()
 {
 	m_num_hits_left - 1;
-	m_num_hits_left = 0;
-	m_level_map->ChangeTileAt(8, 7, 0);
-	m_level_map->ChangeTileAt(8, 8, 0);
+	if (m_num_hits_left <= 0)
+	{
+		m_num_hits_left = 0;
+		m_level_map->ChangeTileAt(8, 7, 0);
+		m_level_map->ChangeTileAt(8, 8, 0);
 
+	}
 }
 
 bool PowBlock::IsAvailable() 
 { 
-	return m_num_hits_left > 0; 
+	if (m_num_hits_left > 0)
+	{
+		return true;
+	}
+	else
+	{
+		return false;
+	}
 }
 
 
