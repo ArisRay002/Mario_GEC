@@ -1,8 +1,9 @@
 {
   "ExpandedNodes": [
     "",
-    "\\BaseMarioProject-main"
+    "\\BaseMarioProject-main",
+    "\\BaseMarioProject-main\\MarioBaseProject"
   ],
-  "SelectedNode": "\\BaseMarioProject-main\\MarioBaseProject.sln",
+  "SelectedNode": "\\BaseMarioProject-main\\MarioBaseProject\\PowBlock.cpp",
   "PreviewInSolutionExplorer": false
 }
