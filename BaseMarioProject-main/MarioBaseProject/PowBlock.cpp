@@ -1,7 +1,7 @@
 #include "PowBlock.h"
 
 using namespace std;
-PowBlock::PowBlock(SDL_Renderer* LevelMap,SDL_Renderer*renderer, SDL_Renderer*map)
+PowBlock::PowBlock(SDL_Renderer* LevelMap, SDL_Renderer*renderer, SDL_Renderer*map)
 {
 	std::string imagePath = "Images/PowBlock.png";
 	m_texture = new Texture2D(renderer);
