@@ -1,9 +1,7 @@
 #include "Collisions.h"
 #include"Character.h"
 //initialise instance to nullptr
-
 Collisions* Collisions::m_instance = nullptr;
-
 Collisions:: Collisions()
 {
 
@@ -14,7 +12,7 @@ Collisions::~Collisions()
 	m_instance = nullptr;
 }
 
- Collisions* Collisions::Instance()
+Collisions* Collisions::Instance()
 {
 	if (!m_instance)
 	{
@@ -23,7 +21,7 @@ Collisions::~Collisions()
 
 	return m_instance;
 
-	//return nullptr;
+	return nullptr;
 }
 
 bool Collisions::Circle(Character* character1, Character* character2)
@@ -34,7 +32,7 @@ bool Collisions::Circle(Character* character1, Character* character2)
 	double distance = sqrt((vec.x * vec.x) + (vec.y * vec.y));
 	double combined_distance = (character1->GetCollisionRadius() + character2->GetCollisionRadius());
 	return distance < combined_distance;
-	//return false;
+	return false;
 }
 
 bool Collisions::Box(Rect2D rect1, Rect2D rect2)

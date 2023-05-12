@@ -42,7 +42,7 @@ void GameScreenLevel1::Update(float deltaTime, SDL_Event e)
 	luigi->Update(deltaTime, e);
 	//if (Collisions::Instance()->Circle(mario, luigi))
 	//{
-		//cout << "Circle hit!" << endl;
+	//	cout << "Circle hit!" << endl;
 	//}
 
 
@@ -50,10 +50,7 @@ void GameScreenLevel1::Update(float deltaTime, SDL_Event e)
 
 void GameScreenLevel1::UpdatePOWBlock()
 {
-	if (m_pow_block->IsAvailable())
-	{
-		m_pow_block->TakeHit();
-	}
+	if (Rect2D)
 }
 
 bool GameScreenLevel1::SetUpLevel()
