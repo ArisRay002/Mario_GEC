@@ -38,7 +38,6 @@ LevelMap::~LevelMap()
 
 }
 <<<<<<< HEAD
-<<<<<<< HEAD
 
 int LevelMap::GetTileAt(unsigned int h, unsigned int w)
 {
@@ -48,7 +47,5 @@ int LevelMap::GetTileAt(unsigned int h, unsigned int w)
 void LevelMap::ChangeTileAt(unsigned int row, unsigned int column, unsigned int new_value)
 {
 }
-=======
->>>>>>> parent of a69e44a... Update
 =======
 >>>>>>> parent of a69e44a... Update
