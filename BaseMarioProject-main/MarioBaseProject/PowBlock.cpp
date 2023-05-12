@@ -48,7 +48,7 @@ static_cast<int>(m_position.x), static_cast<int>(m_position.y), m_single_sprite_
 
 }
 
-inline Rect2D PowBlock::GetCollisionBox()
+Rect2D PowBlock::GetCollisionBox()
 {
 	return Rect2D(m_position.x, m_position.y, m_single_sprite_w, m_single_sprite_h);
 }

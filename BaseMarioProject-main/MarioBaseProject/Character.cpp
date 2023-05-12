@@ -60,8 +60,6 @@ void Character::Update(float deltaTime, SDL_Event e)
 			m_jumping = false;
 	}
 
-	AddGravity(deltaTime);
-
 	if (m_moving_left)
 	{
 		MoveLeft(deltaTime);
@@ -103,7 +101,7 @@ void Character::Jump()
 	
 	m_jump_force = INITIAL_JUMP_FORCE;
 	m_jumping = true;
-	//m_can_jump = false;
+	m_can_jump = false;
 }
 
 float Character::GetCollisionRadius()
