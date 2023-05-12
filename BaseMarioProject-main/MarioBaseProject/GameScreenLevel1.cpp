@@ -62,7 +62,7 @@ bool GameScreenLevel1::SetUpLevel()
 		return false;
 	}
 	//set up player character
-	mario = new CharacterMario(m_renderer, "Images/Mario.png", Vector2D(64, 120), m_level_map);
+	mario = new CharacterMario(m_renderer, "Images/Mario.png", Vector2D(64, 320), m_level_map);
 	luigi = new CharacterLuigi(m_renderer, "Images/Luigi.png", Vector2D(64, 320), m_level_map);
 	m_pow_block = new PowBlock(m_renderer, m_level_map);
 	return true;
