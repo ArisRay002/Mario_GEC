@@ -3,7 +3,7 @@
 #include "Collisions.h"
 #include <iostream>
 #include "PowBlock.h"
-#include "Collisions.cpp"
+
 using namespace std;
 GameScreenLevel1::GameScreenLevel1(SDL_Renderer* renderer) : GameScreen(renderer)
 {
@@ -50,7 +50,7 @@ void GameScreenLevel1::Update(float deltaTime, SDL_Event e)
 
 void GameScreenLevel1::UpdatePOWBlock()
 {
-	if (Rect2D)
+	//if (Rect2D)
 }
 
 bool GameScreenLevel1::SetUpLevel()
