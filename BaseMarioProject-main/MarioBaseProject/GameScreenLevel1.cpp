@@ -2,6 +2,7 @@
 #include "Texture2D.h"
 #include "Collisions.h"
 #include <iostream>
+#include "PowBlock.h"
 using namespace std;
 GameScreenLevel1::GameScreenLevel1(SDL_Renderer* renderer) : GameScreen(renderer)
 {
@@ -20,6 +21,9 @@ GameScreenLevel1::~GameScreenLevel1()
 
 	delete luigi;
 	luigi = nullptr;
+
+	delete m_pow_block;
+	m_pow_block = nullptr;
 }
 
 void GameScreenLevel1::Render()
@@ -27,6 +31,7 @@ void GameScreenLevel1::Render()
 	m_background_texture->Render(Vector2D(), SDL_FLIP_NONE);
 	mario->Render();
 	luigi->Render();
+	m_pow_block->Render();
 }
 
 void GameScreenLevel1::Update(float deltaTime, SDL_Event e)
@@ -42,6 +47,11 @@ void GameScreenLevel1::Update(float deltaTime, SDL_Event e)
 
 }
 
+void GameScreenLevel1::UpdatePOWBlock()
+{
+
+}
+
 bool GameScreenLevel1::SetUpLevel()
 {
 	m_background_texture = new Texture2D(m_renderer);
@@ -53,7 +63,7 @@ bool GameScreenLevel1::SetUpLevel()
 	//set up player character
 	mario = new CharacterMario(m_renderer, "Images/Mario.png", Vector2D(64, 330), m_level_map);
 	luigi = new CharacterLuigi(m_renderer, "Images/Luigi.png", Vector2D(64, 330), m_level_map);
-
+	m_pow_block = new PowBlock(m_renderer, m_level_map);
 	return true;
 }
 
