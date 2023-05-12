@@ -24,7 +24,7 @@ void CharacterMario::Update(float deltaTime, SDL_Event e)
 			m_moving_right = true;
 			break;
 		case SDLK_UP:
-			if (m_can_jump)
+			if (m_can_jump == true)
 			{
 				Jump();
 			}

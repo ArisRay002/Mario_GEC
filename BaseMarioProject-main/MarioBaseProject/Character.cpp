@@ -1,5 +1,6 @@
 #include "Character.h"
 #include "Texture2D.h"
+
 using namespace std;
 
 Character::Character(SDL_Renderer* renderer, string imagePath, Vector2D start_position, LevelMap*map)
@@ -99,9 +100,10 @@ Vector2D Character::GetPosition()
 void Character::Jump()
 {
 	//JUMP
+	
 	m_jump_force = INITIAL_JUMP_FORCE;
 	m_jumping = true;
-	m_can_jump = false;
+	//m_can_jump = false;
 }
 
 float Character::GetCollisionRadius()
